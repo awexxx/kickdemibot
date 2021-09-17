@@ -14,12 +14,14 @@ client.on('guildMemberAdd', async member => {
     if (member.id === '455924243008585738') {
         console.log(`is demi!!!!`)
         member.kick();
+        const channel = client.channels.cache.find(channel => channel.id === `874639389806956574`)
+        channel.send(`I kicked demi because fuck demi`)
     } else if (!member.id === '455924243008585738') {
         console.log(`not demi not demi!!!`)
     }
 })
 
-client.on('message', async message => {
+client.on('messageCreate', async message => {
     if(!message.content.startsWith(prefix) || message.author.bot) return;
      
         const args = message.content.slice(prefix.length).split(/ +/);
